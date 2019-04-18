@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t wilson/docker-r -f Dockerfile.dev .
+script:
+  - docker run wilson/docker-r npm run test -- --coverage
